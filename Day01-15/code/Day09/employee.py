@@ -31,8 +31,10 @@ class Employee(object, metaclass=ABCMeta):
 class Manager(Employee):
 
     # 想一想: 如果不定义构造方法会怎么样
+    # 会自动调用父类Employee的构造方法
     def __init__(self, name):
         # 想一想: 如果不调用父类构造器会怎么样
+        # 无法调用父类方法, 因为name在父类中被定义为私有属性
         super().__init__(name)
 
     def get_salary(self):

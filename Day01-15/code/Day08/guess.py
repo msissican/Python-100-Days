@@ -32,6 +32,8 @@ class GuessMachine(object):
             return True
         return False
 
+    #通过@property装饰器来定义属性, game.counter 得到 self._counter, 而不用 game.counter()
+    #本身这个函数用来返回 self.counter, 不同 game._counter 访问
     @property
     def counter(self):
         return self._counter

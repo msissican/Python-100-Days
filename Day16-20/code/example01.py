@@ -22,24 +22,52 @@ import numpy
 
 
 def seq_search(items: list, elem) -> int:
-    """顺序查找"""
+    """
+    Perform a sequential search on a list.
+
+    Args:
+        items (list): The list to search through.
+        elem: The element to search for in the list.
+
+    Returns:
+        int: The index of the element if found, otherwise -1.
+    """
     for index, item in enumerate(items):
+        # Check if the current item is the element we're searching for
         if elem == item:
             return index
+    # Return -1 if the element is not found
     return -1
 
 
 def bin_search(items, elem):
-    """二分查找"""
+    """
+    Perform a binary search on a sorted list.
+
+    Args:
+        items (list): The sorted list to search through.
+        elem: The element to search for in the list.
+
+    Returns:
+        int: The index of the element if found, otherwise -1.
+    """
+    # Initialize the start and end index
     start, end = 0, len(items) - 1
     while start <= end:
+        # Calculate the middle index
         mid = (start + end) // 2
+        # Check if the element is greater than the middle element
         if elem > items[mid]:
+            # Update the start index
             start = mid + 1
+        # Check if the element is less than the middle element
         elif elem < items[mid]:
+            # Update the end index
             end = mid - 1
         else:
+            # Return the index if the element is found
             return mid
+    # Return -1 if the element is not found
     return -1
 
 

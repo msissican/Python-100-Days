@@ -18,7 +18,7 @@ def main():
     num = int(input('Number of rows: '))
     yh = [[]] * num
     for row in range(len(yh)):
-        yh[row] = [None] * (row + 1) # 每一行有row + 1个元素 None, 相当于初始化
+        yh[row] = [None] * (row + 1)
         for col in range(len(yh[row])):
             if col == 0 or col == row:
                 yh[row][col] = 1

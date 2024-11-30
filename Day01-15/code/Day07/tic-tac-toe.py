@@ -30,7 +30,7 @@ def main():
         begin = False
         turn = 'x'
         counter = 0
-        os.system('clear')
+        os.system('cls')
         print_board(curr_board)
         while counter < 9:
             move = input('轮到%s走棋, 请输入位置: ' % turn)
@@ -41,10 +41,10 @@ def main():
                     turn = 'o'
                 else:
                     turn = 'x'
-            os.system('clear')
+            os.system('cls')
             print_board(curr_board)
         choice = input('再玩一局?(yes|no)')
-        begin = choice == 'yes'
+        begin = (choice == 'yes')
 
 
 if __name__ == '__main__':
