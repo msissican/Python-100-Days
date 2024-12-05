@@ -5,7 +5,7 @@ def main():
     """主函数"""
     emps = [
         EmployeeFactory.create('M', '曹操'), 
-        EmployeeFactory.create('P', '荀彧', 120),
+        EmployeeFactory.create('P', '荀彧', working_hour=200),
         EmployeeFactory.create('P', '郭嘉', 85), 
         EmployeeFactory.create('S', '典韦', 123000),
     ]

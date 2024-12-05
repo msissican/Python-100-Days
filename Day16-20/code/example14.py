@@ -14,6 +14,7 @@ class Suite(Enum):
     SPADE, HEART, CLUB, DIAMOND = range(4)
 
     def __lt__(self, other):
+        # 当两个枚举值比较时(枚举值涉及到 < 号时,比如sort), 实际是比较 value 属性的大小
         return self.value < other.value
 
 
@@ -29,8 +30,8 @@ class Card():
 
     def __str__(self):
         suites = ('♠️', '♥️', '♣️', '♦️')
-        faces = ('', 'A', '2', '3', '4', '5', '6', 
-                 '7', '8', '9', '10', 'J', 'Q', 'K')
+        faces = ('', '3', '4', '5', '6',
+                 '7', '8', '9', '10', 'J', 'Q', 'K', 'A', '2')
         return f'{suites[self.suite.value]} {faces[self.face]}'
 
 
@@ -73,7 +74,7 @@ class Player():
 
     def arrange(self):
         """整理手上的牌"""
-        self.cards.sort(key=lambda card: (card.suite, card.face))
+        self.cards.sort(key=lambda card: (card.face, card.suite))
 
 
 def main():

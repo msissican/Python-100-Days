@@ -3,6 +3,7 @@
 所谓横切关注功能就是很多地方都会用到但跟正常业务又逻辑没有必然联系的功能
 装饰器实际上是实现了设计模式中的代理模式 - AOP（面向切面编程）
 """
+# 很多地方用到, 但跟正常业务逻辑没有必然联系
 from functools import wraps
 from random import randint
 from time import time, sleep

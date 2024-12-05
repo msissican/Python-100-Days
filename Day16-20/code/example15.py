@@ -55,17 +55,25 @@ class FibIter(object):
 
 
 def main():
-    # for val in itertools.permutations('ABCD'):
-    #     print(val)
-    # for val in itertools.combinations('ABCDE', 3):
-    #     print(val)
-    # for val in itertools.product('黑红梅方', range(1, 14)):
-    #     print(val)
-    # fib_iter = FibIter(20)
-    # print('===>', next(fib_iter))
-    # print('===>', next(fib_iter))
-    # for val in fib_iter:
-    #     print(val)
+    for val in itertools.permutations('ABCD'):
+        # ABCD 的全排列, 包括顺序
+        print(val)
+
+    for val in itertools.combinations('ABCDE', 3):
+        # ABCDE 3 位数子集的组合, 不包括顺序
+        print(val)
+
+    for val in itertools.product('黑红梅方', range(1, 14)):
+        # 黑红梅方 * 1~13, 生成笛卡尔积, 各个迭代器的所有组合
+        print(val)
+
+    fib_iter = FibIter(20)
+    print('===>', next(fib_iter))
+    print('===>', next(fib_iter)) # next(fib_iter) 会向后移动
+
+    for val in fib_iter: # 从上面的 next 开始, 继续向后移动
+        print(val)
+
     prime_iter = PrimeIter(2, 100000)
     for val in prime_iter:
         print(val)
