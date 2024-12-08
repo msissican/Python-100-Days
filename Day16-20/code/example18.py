@@ -35,7 +35,7 @@ class President(metaclass=SingletonMeta):
 
 def main():
     """主函数"""
-    p1 = President('特朗普', '美国')
+    p1 = President('特朗普', '美国') # 通过 __call__ 实现类像函数一样调用
     p2 = President('奥巴马', '美国')
     p3 = President.__call__('克林顿', '美国')
     print(p1 == p2)
