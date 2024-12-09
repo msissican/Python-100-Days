@@ -45,7 +45,7 @@ class ThumbnailThread(Thread):
             image.save(outfile, format='PNG') # 保存缩略图
 
 
-# 可以在 Thread 中, target 参数指定要执行的函数
+# 可以在 Thread 中, target 参数指定这个要执行的函数
 def gen_thumbnail(infile):
     file, ext = os.path.splitext(infile)
     filename = file[file.rfind('/') + 1:]

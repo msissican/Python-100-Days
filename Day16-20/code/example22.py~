@@ -42,7 +42,7 @@ def is_prime(n):
 
 def main():
     """主函数"""
-    # 创建进程池, ProcessPoolExecutor 是多进程
+    # 创建进程池
     with concurrent.futures.ProcessPoolExecutor() as executor:
         # zip() 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表
         # executor.map() 函数用于将函数和可迭代对象作为参数，将函数应用到可迭代对象的每个元素上，然后返回一个迭代器

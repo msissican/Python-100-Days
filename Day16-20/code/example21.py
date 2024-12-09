@@ -2,6 +2,8 @@
 多个线程竞争一个资源 - 保护临界资源 - 锁（Lock/RLock）
 多个线程竞争多个资源（线程数>资源数） - 信号量（Semaphore）
 多个线程的调度 - 暂停线程执行/唤醒等待中的线程 - Condition
+
+Lock, Condition, ThreadPoolExecutor
 """
 from concurrent.futures import ThreadPoolExecutor
 from random import randint
@@ -15,6 +17,7 @@ class Account():
 
     def __init__(self, balance=0):
         self.balance = balance
+        # 锁和条件变量
         lock = threading.Lock()
         self.condition = threading.Condition(lock)
 
@@ -22,6 +25,7 @@ class Account():
         """取钱"""
         with self.condition:
             while money > self.balance:
+                # 如何取的钱大于余额, 等待, 阻塞线程
                 self.condition.wait()
             new_balance = self.balance - money
             sleep(0.001)
@@ -33,6 +37,7 @@ class Account():
             new_balance = self.balance + money
             sleep(0.001)
             self.balance = new_balance
+            # 通知所有等待的线程, 有钱了
             self.condition.notify_all()
 
 
@@ -56,11 +61,11 @@ def sub_money(account):
 
 def main():
     account = Account()
+    # 创建5个存款的线程和5个取款的线程
     with ThreadPoolExecutor(max_workers=10) as pool:
         for _ in range(5):
             pool.submit(add_money, account)
             pool.submit(sub_money, account)
-
 
 if __name__ == '__main__':
     main()

@@ -3,6 +3,7 @@
 测试方法：
 - 白盒测试：程序自己写的测试
 - 黑盒测试：测试人员或QA，不知道代码实现细节，只关注功能
+
 编写Python单元测试 - 定义类继承TestCase，写测试方法(test_开头)
 执行单元测试：
 - unittest.main()
@@ -33,7 +34,7 @@ class TestExample01(TestCase):
 
     def test_seq_search(self):
         """测试顺序查找"""
-        self.assertEqual(0, seq_search(self.data1, 35))
+        self.assertEqual(1, seq_search(self.data1, 35))
         self.assertEqual(2, seq_search(self.data1, 12))
         self.assertEqual(6, seq_search(self.data1, 81))
         self.assertEqual(7, seq_search(self.data1, 40))
